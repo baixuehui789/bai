@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js49</title>
+	<style>
+		#ct{
+		 width: 590px;
+		 height:550px;/* 550 */
+		 background: 4px green solid;
+		 position: relative;
+		 overflow: hidden;
+	  }
+	  .ctbox{
+	  	width:590px;
+	  	height: 490px;
+	  	position: absolute;
+	  	top:0px;
+		}
+		#ct .c1{
+			top:0;
+			transition: 3s;
+		}
+		#ct .c2{
+			top:490px;
+			transition: 3s;
+		}
+		#ct .c3{
+			top:510px;
+			transition: 3s;
+		}
+		#ct .c4{
+			top:530px;
+			transition: 3s;
+		}
+	  #ct .c1 .title{
+			background: rgb(0,0,127);
+		}
+		#ct .c2 .title{
+			background: rgb(238,136,0);
+		}
+		#ct .c3 .title{
+			background: rgb(126,127,0);
+		}
+		#ct .c4 .title{
+			background: rgb(35,97,173);
+		}
+	</style>
+</head>
+<body>
+	<div id="ct">
+		<div class="ctbox c1">
+			<div class="title">交通行业</div>
+			<img src="images/1.jpg">
+		</div>
+		<div class="ctbox c2">
+			<div class="title">司法行业</div>
+			<img src="images/2.jpg">
+		</div>
+		<div class="ctbox c3">
+			<div class="title">政府相关行业</div>
+			<img src="images/3.jpg">
+		</div>
+		<div class="ctbox c4">
+			<div class="title">其他行业</div>
+			<img src="images/4.jpg">
+		</div>
+	</div>
+ <script>
+ 	var ct=document.getElementById('ct');
+		var ctbox=ct.getElementsByClassName('ctbox');
+		var title=ct.getElementsByClassName('title');
+		var theight=470;
+		var kheight=20;
+		for( var i=0;i<title.length;i++){
+			title[i].index=i;
+			title[i].onclick=function(){
+				for(var i=0;i<title.length;i++){
+					if(i<=this.index){
+						ctbox[i].style.top=i*kheight+'px';
+					}else{
+						ctbox[i].style.top=i*kheight+theight+'px';
+					}
+				}
+			}
+		}
+ </script>
+</body>
+</html>
